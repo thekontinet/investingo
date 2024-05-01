@@ -8,6 +8,8 @@ use Illuminate\Validation\Rule;
 
 class ProfileUpdateRequest extends FormRequest
 {
+    protected $errorBag = 'profile';
+
     /**
      * Get the validation rules that apply to the request.
      *

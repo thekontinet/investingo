@@ -1,39 +1,49 @@
-<x-guest-layout>
-    <form method="POST" action="{{ route('password.store') }}">
-        @csrf
-
-        <!-- Password Reset Token -->
-        <input type="hidden" name="token" value="{{ $request->route('token') }}">
-
-        <!-- Email Address -->
-        <div>
-            <x-input-label for="email" :value="__('Email')" />
-            <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email', $request->email)" required autofocus autocomplete="username" />
-            <x-input-error :messages="$errors->get('email')" class="mt-2" />
+<x-auth-layout>
+    <div class="nk-block nk-block-middle nk-auth-body">
+        <div class="brand-logo pb-5">
+            <x-application-logo />
         </div>
+        <div class="nk-block-head">
+            <div class="nk-block-head-content">
+                <h5 class="nk-block-title">Create Password</h5>
+                <div class="nk-block-des">
+                    <p>Create a new password for your account.</p>
+                </div>
+            </div>
+        </div><!-- .nk-block-head -->
+        <form action="{{ route('password.store') }}" method="post" class="form-validate is-alter" autocomplete="off">
+            @csrf
 
-        <!-- Password -->
-        <div class="mt-4">
-            <x-input-label for="password" :value="__('Password')" />
-            <x-text-input id="password" class="block mt-1 w-full" type="password" name="password" required autocomplete="new-password" />
-            <x-input-error :messages="$errors->get('password')" class="mt-2" />
-        </div>
 
-        <!-- Confirm Password -->
-        <div class="mt-4">
-            <x-input-label for="password_confirmation" :value="__('Confirm Password')" />
+            <!-- Password Reset Token -->
+            <input type="hidden" name="token" value="{{ $request->route('token') }}">
 
-            <x-text-input id="password_confirmation" class="block mt-1 w-full"
-                                type="password"
-                                name="password_confirmation" required autocomplete="new-password" />
-
-            <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
-        </div>
-
-        <div class="flex items-center justify-end mt-4">
-            <x-primary-button>
-                {{ __('Reset Password') }}
-            </x-primary-button>
-        </div>
-    </form>
-</x-guest-layout>
+            <div class="form-group">
+                <x-input-label class="form-label" for="email-address">Email</x-input-label>
+                <x-text-input type="text" class="form-control form-control-lg" name="email" id="email-address"
+                    placeholder="Enter your email address" autocomplete="off" :value="old('email', $request->email)" required
+                    error="{{ $errors->has('email') }}" />
+                <x-input-error :messages="$errors->get('email')" />
+            </div><!-- .form-group -->
+            <div class="form-group">
+                <div class="form-label-group">
+                    <label class="form-label" for="password">New Password</label>
+                </div>
+                <div class="form-control-wrap">
+                    <a tabindex="-1" href="#" class="form-icon form-icon-right passcode-switch lg"
+                        data-target="password">
+                        <em class="passcode-icon icon-show icon ni ni-eye"></em>
+                        <em class="passcode-icon icon-hide icon ni ni-eye-off"></em>
+                    </a>
+                    <x-text-input autocomplete="new-password" type="password" class="form-control form-control-lg"
+                        required name="password" id="password" placeholder="Enter your new password"
+                        :error="$errors->has('password')" />
+                </div>
+                <x-input-error :messages="$errors->get('password')" />
+            </div><!-- .form-group -->
+            <div class="form-group">
+                <button class="btn btn-lg btn-primary btn-block">Update Password</button>
+            </div>
+        </form><!-- form -->
+    </div><!-- .nk-block -->
+</x-auth-layout>
