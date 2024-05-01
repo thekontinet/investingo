@@ -22,9 +22,7 @@
                             <a class="nav-link" href="{{ route('profile.settings') }}">Security<span
                                     class="d-none s-sm-inline"> Setting</span></a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="html/invest/profile-notify.html">Notifications</a>
-                        </li>
+
                     </ul><!-- .nav-tabs -->
                     @if (request()->routeIs('profile.edit'))
                         @include('profile.partials.profile-info')

@@ -22,23 +22,18 @@
                 <!-- Menu -->
                 <ul class="nk-menu nk-menu-main">
                     <li class="nk-menu-item">
-                        <a href="html/invest/index.html" class="nk-menu-link">
-                            <span class="nk-menu-text">Overview</span>
+                        <a href="{{ route('dashboard') }}" class="nk-menu-link">
+                            <span class="nk-menu-text">Dashboard</span>
                         </a>
                     </li>
                     <li class="nk-menu-item">
-                        <a href="html/invest/schemes.html" class="nk-menu-link">
+                        <a href="#" class="nk-menu-link">
                             <span class="nk-menu-text">MY Plan</span>
                         </a>
                     </li>
                     <li class="nk-menu-item">
-                        <a href="html/invest/invest.html" class="nk-menu-link">
+                        <a href="#" class="nk-menu-link">
                             <span class="nk-menu-text">Invest</span>
-                        </a>
-                    </li>
-                    <li class="nk-menu-item">
-                        <a href="html/invest/profile.html" class="nk-menu-link">
-                            <span class="nk-menu-text">Profile</span>
                         </a>
                     </li>
                     <li class="nk-menu-item active has-sub">
