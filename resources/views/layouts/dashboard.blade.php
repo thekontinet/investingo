@@ -26,6 +26,7 @@
             <div class="nk-content nk-content-lg nk-content-fluid">
                 <div class="container-xl wide-lg">
                     <div class="nk-content-inner">
+                        <x-alert />
                         {{ $slot }}
                     </div>
                 </div>
@@ -53,6 +54,7 @@
     <script src="/dash_assets/js/bundle.js?ver=3.2.3"></script>
     <script src="/dash_assets/js/scripts.js?ver=3.2.3"></script>
     <script src="/dash_assets/js/charts/chart-invest.js?ver=3.2.3"></script>
+    @vite('resources/js/app.js')
     @stack('scripts')
 </body>
 

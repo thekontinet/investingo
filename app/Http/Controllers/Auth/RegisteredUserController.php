@@ -17,9 +17,15 @@ class RegisteredUserController extends Controller
     /**
      * Display the registration view.
      */
-    public function create(): View
+    public function create(Request $request): View
     {
-        return view('auth.register');
+        $user = User::query()
+            ->where('ref_code', $request->query('ref'))
+            ->first();
+
+        return view('auth.register', [
+            'referrer' => $user?->id,
+        ]);
     }
 
     /**
@@ -33,11 +39,13 @@ class RegisteredUserController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:'.User::class],
             'password' => ['required', Rules\Password::defaults()],
+            'referred_by' => ['nullable', 'exists:users,id'],
         ]);
 
         $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
+            'referred_by' => $request->referred_by,
             'password' => Hash::make($request->password),
         ]);
 

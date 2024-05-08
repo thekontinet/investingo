@@ -43,6 +43,22 @@
                                     <x-input-error :messages="$errors->profile->get('phone')" />
                                 </div>
                             </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="form-label" for="country">Country</label>
+                                    <x-text-input type="text" name="country" class="form-control form-control-lg"
+                                        id="country" :value="old('country', $user->country)" placeholder="Country" />
+                                    <x-input-error :messages="$errors->profile->get('country')" />
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="form-label" for="state">State</label>
+                                    <x-text-input type="text" name="state" class="form-control form-control-lg"
+                                        id="state" :value="old('state', $user->state)" placeholder="state" />
+                                    <x-input-error :messages="$errors->profile->get('state')" />
+                                </div>
+                            </div>
                             <div class="col-12">
                                 <ul class="align-center flex-wrap flex-sm-nowrap gx-4 gy-2">
                                     <li>

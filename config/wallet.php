@@ -2,6 +2,9 @@
 
 declare(strict_types=1);
 
+use App\Enums\Enums\WalletType;
+use App\Models\Transaction;
+use App\Models\Wallet as ModelsWallet;
 use Bavix\Wallet\Internal\Assembler\AvailabilityDtoAssembler;
 use Bavix\Wallet\Internal\Assembler\BalanceUpdatedEventAssembler;
 use Bavix\Wallet\Internal\Assembler\ExtraDtoAssembler;
@@ -31,7 +34,6 @@ use Bavix\Wallet\Internal\Service\TranslatorService;
 use Bavix\Wallet\Internal\Service\UuidFactoryService;
 use Bavix\Wallet\Internal\Transform\TransactionDtoTransformer;
 use Bavix\Wallet\Internal\Transform\TransferDtoTransformer;
-use Bavix\Wallet\Models\Transaction;
 use Bavix\Wallet\Models\Transfer;
 use Bavix\Wallet\Models\Wallet;
 use Bavix\Wallet\Services\AssistantService;
@@ -54,7 +56,7 @@ use Bavix\Wallet\Services\TransferService;
 use Bavix\Wallet\Services\WalletService;
 
 return [
-    /**
+    /*
      * Arbitrary Precision Calculator.
      *
      * 'scale' - length of the mantissa
@@ -63,7 +65,7 @@ return [
         'scale' => env('WALLET_MATH_SCALE', 64),
     ],
 
-    /**
+    /*
      * Storage of the state of the balance of wallets.
      */
     'cache' => [
@@ -71,7 +73,7 @@ return [
         'ttl' => env('WALLET_CACHE_TTL', 24 * 3600),
     ],
 
-    /**
+    /*
      * A system for dealing with race conditions.
      */
     'lock' => [
@@ -79,7 +81,7 @@ return [
         'seconds' => env('WALLET_LOCK_TTL', 1),
     ],
 
-    /**
+    /*
      * Internal services that can be overloaded.
      */
     'internal' => [
@@ -96,7 +98,7 @@ return [
         'uuid' => UuidFactoryService::class,
     ],
 
-    /**
+    /*
      * Services that can be overloaded.
      */
     'services' => [
@@ -120,7 +122,7 @@ return [
         'wallet' => WalletService::class,
     ],
 
-    /**
+    /*
      * Repositories for fetching data from the database.
      */
     'repositories' => [
@@ -129,7 +131,7 @@ return [
         'wallet' => WalletRepository::class,
     ],
 
-    /**
+    /*
      * Objects of transformer from DTO to array.
      */
     'transformers' => [
@@ -137,7 +139,7 @@ return [
         'transfer' => TransferDtoTransformer::class,
     ],
 
-    /**
+    /*
      * Builder class, needed to create DTO.
      */
     'assemblers' => [
@@ -153,7 +155,7 @@ return [
         'transfer_query' => TransferQueryAssembler::class,
     ],
 
-    /**
+    /*
      * Package system events.
      */
     'events' => [
@@ -162,7 +164,7 @@ return [
         'transaction_created' => TransactionCreatedEvent::class,
     ],
 
-    /**
+    /*
      * Base model 'transaction'.
      */
     'transaction' => [
@@ -170,7 +172,7 @@ return [
         'model' => Transaction::class,
     ],
 
-    /**
+    /*
      * Base model 'transfer'.
      */
     'transfer' => [
@@ -178,16 +180,16 @@ return [
         'model' => Transfer::class,
     ],
 
-    /**
+    /*
      * Base model 'wallet'.
      */
     'wallet' => [
         'table' => env('WALLET_WALLET_TABLE_NAME', 'wallets'),
-        'model' => Wallet::class,
+        'model' => ModelsWallet::class,
         'creating' => [],
         'default' => [
-            'name' => env('WALLET_DEFAULT_WALLET_NAME', 'Default Wallet'),
-            'slug' => env('WALLET_DEFAULT_WALLET_SLUG', 'default'),
+            'name' => env('WALLET_DEFAULT_WALLET_NAME', 'Main Wallet'),
+            'slug' => env('WALLET_DEFAULT_WALLET_SLUG', WalletType::DEFAULT->value),
             'meta' => [],
         ],
     ],

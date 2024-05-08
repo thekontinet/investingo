@@ -33,6 +33,22 @@
                 <div class="data-col data-col-end"><span class="data-more"><em
                             class="icon ni ni-forward-ios"></em></span></div>
             </div>
+            <div class="data-item" data-bs-toggle="modal" data-bs-target="#profile-edit">
+                <div class="data-col">
+                    <span class="data-label">Country</span>
+                    <span class="data-value text-soft">{{ $user->country ?? 'Not added yet' }}</span>
+                </div>
+                <div class="data-col data-col-end"><span class="data-more"><em
+                            class="icon ni ni-forward-ios"></em></span></div>
+            </div>
+            <div class="data-item" data-bs-toggle="modal" data-bs-target="#profile-edit">
+                <div class="data-col">
+                    <span class="data-label">State</span>
+                    <span class="data-value text-soft">{{ $user->state ?? 'Not added yet' }}</span>
+                </div>
+                <div class="data-col data-col-end"><span class="data-more"><em
+                            class="icon ni ni-forward-ios"></em></span></div>
+            </div>
         </div><!-- .nk-data -->
     </div><!-- .card -->
 

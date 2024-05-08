@@ -13,6 +13,7 @@
         </div><!-- .nk-block-head -->
         <form action="{{ route('register') }}" method="post" class="form-validate is-alter" autocomplete="off">
             @csrf
+            <input type="hidden" name="referred_by" value="{{ $referrer }}">
             <div class="form-group">
                 <x-input-label class="form-label" for="Name">Name</x-input-label>
                 <x-text-input type="text" class="form-control form-control-lg" name="name" id="name"
