@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> {{ config('app.name') }} - Online Money Investment Platform</title>
+    <title> {{ $appSettings->name }} - Online Money Investment Platform</title>
     <!-- favicon -->
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
     <!-- bootstrap -->
@@ -170,7 +170,7 @@
                 <div class="container">
                     <div class="row justify-content-center">
                         <div class="col-xl-8 col-lg-8">
-                            <p>Copyright © <a href='/live/'>{{ config('app.name') }}</a> - 2020. All Rights
+                            <p>Copyright © <a href='/live/'>{{ $appSettings->name }}</a> - 2020. All Rights
                                 Reserved</p>
                         </div>
                     </div>

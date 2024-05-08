@@ -2,9 +2,11 @@
 
 namespace App\Providers;
 
+use App\Settings\AppSettings;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Facades\Blade;
+use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -25,5 +27,6 @@ class AppServiceProvider extends ServiceProvider
     {
         Model::unguard();
         Paginator::useBootstrapFive();
+        View::share('appSettings', app(AppSettings::class));
     }
 }

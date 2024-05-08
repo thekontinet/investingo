@@ -8,7 +8,7 @@
                     class="col-xl-7 col-lg-7 col-sm-10 col-md-9 d-xl-flex d-lg-flex d-block align-items-center d-banner-tamim">
                     <div class="banner-content">
                         <h4>Want to Invest Money?</h4>
-                        <h1>Grow your money with {{ config('app.name') }}</h1>
+                        <h1>Grow your money with {{ $appSettings->name }}</h1>
                         <p>We Already Completed Our 15+ Years in Online Investment Business<br /> With Trust and
                             Excellent Reputation.</p>
                         <a href="{{ route('register') }}" class="btn-hyipox">Start Investing Now</a>
@@ -211,7 +211,7 @@
                             Premium Package
                         </span>
                         <h2>
-                            Check out {{ config('app.name') }}'s <span class="special">Pricing Plans!</span>
+                            Check out {{ $appSettings->name }}'s <span class="special">Pricing Plans!</span>
                         </h2>
                     </div>
                 </div>
@@ -355,7 +355,7 @@
                             Must Meet With
                         </span>
                         <h2>
-                            {{ config('app.name') }}'s recent transaction
+                            {{ $appSettings->name }}'s recent transaction
                         </h2>
                     </div>
                 </div>
@@ -393,7 +393,7 @@
                             date, time processed, and transaction status. It also shows rencent transaction
                             information from our investors.</p>
                         <p class="marked"><b>Important:</b> Your Past Transactions list will show the past history
-                            in account activity on {{ config('app.name') }}. If you need information prior to the
+                            in account activity on {{ $appSettings->name }}. If you need information prior to the
                             any year of the
                             past, the statements will attach the past transaction history.</p>
                         <a href="#" class="btn-hyipox-medium cta-btn">Open An Account</a>
@@ -414,7 +414,7 @@
                             You couldn't think
                         </span>
                         <h2>
-                            why {{ config('app.name') }} is<span class="special"> the best</span>
+                            why {{ $appSettings->name }} is<span class="special"> the best</span>
                         </h2>
                     </div>
                 </div>
@@ -446,7 +446,7 @@
                                     </div>
                                     <div class="part-text">
                                         <h3 class="title">Unlimited Referral Bonus</h3>
-                                        <p>Promote {{ config('app.name') }} and earn unlimited referral commission
+                                        <p>Promote {{ $appSettings->name }} and earn unlimited referral commission
                                             from each referral
                                             links</p>
                                     </div>
@@ -516,7 +516,7 @@
                                     </div>
                                     <div class="part-text">
                                         <h3 class="title">24/7 Friendly Support</h3>
-                                        <p>We provide 24/7 friendly support in {{ config('app.name') }}. We're
+                                        <p>We provide 24/7 friendly support in {{ $appSettings->name }}. We're
                                             always responsible to
                                             take care</p>
                                     </div>
@@ -555,7 +555,7 @@
                                 <span class="quot-icon">
                                     <img src="/frontpage/oitila/assets/img/icon/quot.png" alt="">
                                 </span>
-                                <p>"{{ config('app.name') }} has been a game-changer for me. I used to be
+                                <p>"{{ $appSettings->name }} has been a game-changer for me. I used to be
                                     intimidated by investing,
                                     but their user-friendly platform and variety of options made it easy to get
                                     started. Now, I can invest my business profits in a way that actually grows my
@@ -570,7 +570,7 @@
                                 <span class="quot-icon">
                                     <img src="/frontpage/oitila/assets/img/icon/quot.png" alt="">
                                 </span>
-                                <p>"I love the flexibility {{ config('app.name') }} offers. I can invest in
+                                <p>"I love the flexibility {{ $appSettings->name }} offers. I can invest in
                                     traditional stocks with my
                                     regular currency, but I can also use some of my cryptocurrency holdings to
                                     explore the world of luxury assets. It's a great way to diversify my portfolio
@@ -586,7 +586,7 @@
                                     <img src="/frontpage/oitila/assets/img/icon/quot.png" alt="">
                                 </span>
                                 <p>"As a teacher, I don't have a ton of disposable income. But
-                                    {{ config('app.name') }}'s curated
+                                    {{ $appSettings->name }}'s curated
                                     investment plans allowed me to start investing with a small amount and choose a
                                     plan that aligns with my long-term goals. It's a great way to save for the
                                     future, even on a limited budget."</p>
