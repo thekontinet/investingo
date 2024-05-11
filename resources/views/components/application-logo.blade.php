@@ -1,3 +1,3 @@
 <a href='/'>
-    <img src="{{ $appSettings->logo ?? '/brand/logo.png' }}" alt="">
+    <img style="max-width: 150px" src="{{ $appSettings->logo }}" alt="{{ $appSettings->name }}">
 </a>

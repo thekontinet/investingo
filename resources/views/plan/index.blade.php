@@ -25,7 +25,7 @@
                                     @foreach ($plans as $plan)
                                         <li class="plan-item">
                                             <input type="radio" id="plan-iv-{{ $plan->id }}" name="plan_id"
-                                                class="plan-control" value="{{ $plan->id }}">
+                                                class="plan-control" value="{{ $plan->id }}" required>
                                             <div class="plan-item-card">
                                                 <div class="plan-item-head">
                                                     <div class="plan-item-heading">

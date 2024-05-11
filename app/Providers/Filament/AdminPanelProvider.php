@@ -4,6 +4,7 @@ namespace App\Providers\Filament;
 
 use App\Filament\Widgets\RecentUsers;
 use App\Filament\Widgets\StatsOverview;
+use App\Settings\AppSettings;
 use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\DisableBladeIconComponents;
 use Filament\Http\Middleware\DispatchServingFilamentEvent;
@@ -29,6 +30,8 @@ class AdminPanelProvider extends PanelProvider
             ->id('admin')
             ->path('admin')
             ->login()
+            ->brandName(fn (AppSettings $appSettings) => $appSettings->name)
+            ->brandLogo(fn (AppSettings $appSettings) => $appSettings->logo)
             ->colors([
                 'primary' => Color::Hex('#3F84E5'),
                 'gray' => Color::Slate,

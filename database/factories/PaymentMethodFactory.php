@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Asset;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -17,7 +18,8 @@ class PaymentMethodFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'asset_id' => Asset::factory(),
+            'data' => [fake()->address()],
         ];
     }
 }

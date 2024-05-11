@@ -6,7 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> {{ $appSettings->name }} - Online Money Investment Platform</title>
+    <meta name="description" content="{{ $appSettings->description }}">
+    <title> {{ $appSettings->name }} - {{ $appSettings->tagline }}</title>
     <!-- favicon -->
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
     <!-- bootstrap -->
@@ -81,18 +82,23 @@
                                             </li>
 
                                             <li class="nav-item">
-                                                <a class='nav-link' href='{{ route('page', 'about') }}'>about us<span
+                                                <a class='nav-link' href='#about'>about us<span
                                                         class="sr-only">(current)</span></a>
                                             </li>
 
                                             <li class="nav-item">
-                                                <a class='nav-link' href='{{ route('page', 'contact') }}'>contact<span
+                                                <a class='nav-link' href='#pricing'>Plans<span
+                                                        class="sr-only">(current)</span></a>
+                                            </li>
+
+                                            <li class="nav-item">
+                                                <a class='nav-link' href='#reason'>Why Us<span
                                                         class="sr-only">(current)</span></a>
                                             </li>
 
 
                                             <li class="nav-item join-now-btn">
-                                                <a class="nav-link" href="{{ route('register') }}">Join Now</a>
+                                                <a class="nav-link" href="{{ route('login') }}">Login</a>
                                             </li>
                                         </ul>
                                     </div>

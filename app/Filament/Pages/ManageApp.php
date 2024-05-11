@@ -21,8 +21,11 @@ class ManageApp extends SettingsPage
         return $form
             ->schema([
                 TextInput::make('name')->required(),
-                TextInput::make('description')->required(),
                 TextInput::make('email')->email(),
+                TextInput::make('description'),
+                TextInput::make('headline'),
+                TextInput::make('tagline'),
+                TextInput::make('livechat'),
                 FileUpload::make('logo'),
             ]);
     }

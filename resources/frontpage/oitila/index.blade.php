@@ -2,15 +2,16 @@
     <!-- banner begin -->
     <div class="banner">
         <div class="container">
-            <div
+            <div style="position: relative"
                 class="row justify-content-xl-between justify-content-lg-between justify-content-md-center justify-content-sm-center">
+                <div style="position: absolute; top:-90px; left:0; right:0">
+                    <x-frontpage::tradingview-ticker-tape />
+                </div>
                 <div
                     class="col-xl-7 col-lg-7 col-sm-10 col-md-9 d-xl-flex d-lg-flex d-block align-items-center d-banner-tamim">
                     <div class="banner-content">
-                        <h4>Want to Invest Money?</h4>
-                        <h1>Grow your money with {{ $appSettings->name }}</h1>
-                        <p>We Already Completed Our 15+ Years in Online Investment Business<br /> With Trust and
-                            Excellent Reputation.</p>
+                        <h1>{{ $appSettings->headline }}</h1>
+                        <p>{{ $appSettings->tagline }}.</p>
                         <a href="{{ route('register') }}" class="btn-hyipox">Start Investing Now</a>
                     </div>
                     <div class="banner-statics">
@@ -233,8 +234,8 @@
             <div class="cta-bg">
                 <div
                     class="row justify-content-xl-between justify-content-lg-between justify-content-md-between justify-content-sm-center">
-                    <div class="col-xl-7 col-lg-7 col-md-12 col-sm-10 d-xl-flex d-lg-flex d-block align-items-center">
-                        <div class="cta-text">
+                    <div class="col-sm-10 d-xl-flex d-lg-flex d-block align-items-center mx-auto">
+                        <div class="cta-text text-center">
                             <h2>We're Always Thinking Something Different</h2>
                             <p>Don't let your financial dreams remain just that – dreams. Take charge of your future
                                 and start growing your wealth today. Open an account, explore the exciting
@@ -245,12 +246,9 @@
                             </a>
                         </div>
                     </div>
-                    <div class="col-xl-4 col-lg-4 d-xl-flex d-lg-flex justify-content-end d-block align-items-center">
-                        <div class="part-video">
-                            <img src="/frontpage/oitila/assets/img/video.jpg" alt="">
-                            <button data-video-id="L61p2uyiMSo" class="play-video js-video-button"><i
-                                    class="fas fa-play"></i></button>
-                        </div>
+                    <div
+                        class="col-lg-8 mt-4 mx-auto d-xl-flex d-lg-flex justify-content-end d-block align-items-center">
+                        <x-frontpage::tradingview-market-table />
                     </div>
                 </div>
             </div>

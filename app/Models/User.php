@@ -82,6 +82,11 @@ class User extends Authenticatable implements Wallet, Confirmable, FilamentUser,
 
     public function canAccessPanel(Panel $panel): bool
     {
+        return $this->isAdmin();
+    }
+
+    public function isAdmin(): bool
+    {
         return $this->role === Role::Admin;
     }
 

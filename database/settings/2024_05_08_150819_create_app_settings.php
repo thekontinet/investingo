@@ -7,10 +7,10 @@ return new class() extends SettingsMigration {
     {
         $this->migrator->add('app.name', config('app.name'));
         $this->migrator->add('app.email', config('mail.from.address'));
-        $this->migrator->add('app.description', null);
-        $this->migrator->add('app.headline', null);
-        $this->migrator->add('app.tagline', null);
-        $this->migrator->add('app.logo', null);
+        $this->migrator->add('app.description', 'Best in the currency market');
+        $this->migrator->add('app.headline', 'Grow Your Finance With Us');
+        $this->migrator->add('app.tagline', 'We Already Completed Our 15+ Years in Online Investment Business With Trust and Excellent Reputation.');
+        $this->migrator->add('app.logo', '/brand/logo.png');
         $this->migrator->add('app.livechat', env('LIVECHAT_URL'));
     }
 

@@ -6,12 +6,10 @@
     <meta charset="utf-8">
     <meta name="author" content="Softnio">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description"
-        content="A powerful and conceptual apps base dashboard template that especially build for developers and programmers.">
+    <meta name="description" content="{{ $appSettings->description }}">
+    <title> {{ $appSettings->name }} - {{ $appSettings->tagline }}</title>
     <!-- Fav Icon  -->
     <link rel="shortcut icon" href="/dash_assets/iamges/favicon.png">
-    <!-- Page Title  -->
-    <title>Login | DashLite Admin Template</title>
     <!-- StyleSheets  -->
     <link rel="stylesheet" href="/dash_assets/css/dashlite.css?ver=3.2.3">
     <link id="skin-default" rel="stylesheet" href="/dash_assets/css/theme.css?ver=3.2.3">
@@ -46,26 +44,22 @@
                                     <div class="slider-item">
                                         <div class="nk-feature nk-feature-center">
                                             <div class="nk-feature-img">
-                                                <img class="round" src="/images/slides/promo-a.png"
-                                                    srcset="/images/slides/promo-a2x.png 2x" alt="">
+
                                             </div>
                                             <div class="nk-feature-content py-4 p-sm-5">
-                                                <h4>Dashlite</h4>
-                                                <p>You can start to create your products easily with its user-friendly
-                                                    design & most completed responsive layout.</p>
+                                                <h4>Wealth in Wisdom</h4>
+                                                <p>Plant your investments today; harvest your dreams tomorrow.</p>
                                             </div>
                                         </div>
                                     </div><!-- .slider-item -->
                                     <div class="slider-item">
                                         <div class="nk-feature nk-feature-center">
                                             <div class="nk-feature-img">
-                                                <img class="round" src="/images/slides/promo-b.png"
-                                                    srcset="/images/slides/promo-b2x.png 2x" alt="">
+
                                             </div>
                                             <div class="nk-feature-content py-4 p-sm-5">
-                                                <h4>Dashlite</h4>
-                                                <p>You can start to create your products easily with its user-friendly
-                                                    design & most completed responsive layout.</p>
+                                                <h4>Investing for Tomorrow</h4>
+                                                <p>Invest in knowledge, reap the dividends of wisdom for a lifetime.</p>
                                             </div>
                                         </div>
                                     </div>

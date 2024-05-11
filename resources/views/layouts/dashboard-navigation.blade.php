@@ -46,6 +46,13 @@
                                     <span class="nk-menu-text">Transactions</span>
                                 </a>
                             </li>
+                            @if (auth()->user()->isAdmin())
+                                <li class="nk-menu-item">
+                                    <a href="{{ route('filament.admin.pages.dashboard') }}" class="nk-menu-link">
+                                        <span class="nk-menu-text">Admin Panel</span>
+                                    </a>
+                                </li>
+                            @endif
                         </ul>
                     </li>
                 </ul>

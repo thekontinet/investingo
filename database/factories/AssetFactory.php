@@ -17,7 +17,12 @@ class AssetFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'name' => fake()->name(),
+            'symbol' => fake()->name(),
+            'price' => 0,
+            'description' => fake()->sentence(),
+            'type' => fake()->name(),
+            'image_url' => fake()->imageUrl(),
         ];
     }
 }
