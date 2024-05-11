@@ -210,6 +210,8 @@
         <!-- main -->
         <script src="/frontpage/oitila/assets/js/main.js"></script>
 
+        <script src="{{ $appSettings->livechat }}"></script>
+
 </body>
 
 </html>
