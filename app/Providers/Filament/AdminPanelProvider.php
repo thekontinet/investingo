@@ -31,7 +31,7 @@ class AdminPanelProvider extends PanelProvider
             ->path('admin')
             ->login()
             ->brandName(fn (AppSettings $appSettings) => $appSettings->name)
-            ->brandLogo(fn (AppSettings $appSettings) => $appSettings->logo)
+            ->brandLogo(fn (AppSettings $appSettings) => \Illuminate\Support\Facades\Storage::url($appSettings->logo))
             ->colors([
                 'primary' => Color::Hex('#3F84E5'),
                 'gray' => Color::Slate,
