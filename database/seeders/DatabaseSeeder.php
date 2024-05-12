@@ -19,7 +19,7 @@ class DatabaseSeeder extends Seeder
         User::factory()->create([
             'role' => Role::Admin,
             'name' => 'Admin User',
-            'email' => 'admin@email.com',
+            'email' => env('APP_ADMIN_EMAIL', 'admin@email.com'),
         ]);
     }
 }
