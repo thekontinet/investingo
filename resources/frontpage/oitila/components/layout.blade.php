@@ -121,10 +121,10 @@
                         <div class="col-xl-4 col-lg-4 col-md-6 col-sm-10">
                             <div class="about-widget">
                                 <x-application-logo />
-                                <p>More than just an investment platform, we're your partner on the path to
-                                    financial
-                                    freedom. Start your journey today and unlock the potential of your hard-earned
-                                    money.</p>
+                                <p>Beyond a mere investment platform, we serve as your ally on the road to financial
+                                    liberation. Initiate your journey today and harness the power of Artificial
+                                    Intelligence to streamline financial management, propelling you towards independence
+                                    and freedom.</p>
                             </div>
                         </div>
                         <div class="col-xl-2 col-lg-2 col-md-6 col-sm-10">

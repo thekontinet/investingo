@@ -6,7 +6,6 @@ use App\Filament\Resources\TransactionResource\Pages;
 use App\Models\Transaction;
 use Filament\Forms;
 use Filament\Forms\Form;
-use Filament\Notifications\Notification;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
@@ -66,33 +65,18 @@ class TransactionResource extends Resource
             ->actions([
                 Tables\Actions\ActionGroup::make([
                     Tables\Actions\EditAction::make(),
-                    Tables\Actions\Action::make('confirm')
-                        ->label(fn ($record) => $record->confirmed ? 'Reset' : 'Approve')
+
+                    Tables\Actions\Action::make('approve')
                         ->requiresConfirmation()
-                        ->icon(fn ($record) => $record->confirmed ? 'heroicon-o-arrow-path' : 'heroicon-o-check-circle')
-                        ->action(function (Transaction $record) {
-                            try {
-                                $message = '';
+                        ->hidden(fn ($record) => $record->confirmed)
+                        ->icon('heroicon-o-check-circle')
+                        ->action(fn ($record) => $record->wallet->confirm($record)),
 
-                                if (!$record->confirmed) {
-                                    $record->wallet->confirm($record);
-                                    $message = 'Transaction has been approved and settled';
-                                } else {
-                                    $record->wallet->resetConfirm($record);
-                                    $message = 'Transaction has been reset';
-                                }
-
-                                return Notification::make()->title('Request Complete')
-                                    ->body($message)
-                                    ->success()
-                                    ->send();
-                            } catch (\Exception $e) {
-                                return Notification::make()->title('An Error Has Occured')
-                                    ->body($e->getMessage())
-                                    ->danger()
-                                    ->send();
-                            }
-                        }),
+                        Tables\Actions\Action::make('reset')
+                            ->requiresConfirmation()
+                            ->visible(fn ($record) => $record->confirmed)
+                            ->icon('heroicon-o-arrow-path')
+                            ->action(fn ($record) => $record->wallet->resetConfirm($record)),
                 ]),
             ])
             ->bulkActions([
