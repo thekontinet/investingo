@@ -60,39 +60,6 @@
     </div>
     <!-- slideshow content end -->
     <!-- section content begin -->
-    <div class="uk-section uk-section-small in-monee-1">
-        <div class="uk-container">
-            <div class="uk-grid uk-flex uk-flex-center uk-margin-small-top">
-                <div class="uk-width-1-1 uk-width-3-4@m">
-                    <div class="uk-grid uk-grid-small uk-child-width-1-3@s uk-text-center" data-uk-grid>
-                        <div>
-                            <img class="uk-border-rounded uk-margin-remove-bottom"
-                                src="/frontpage/monee/img/in-lazy.gif"
-                                data-src="/frontpage/monee/img/in-monee-1-award-1.png" alt="monee-award1" width="148"
-                                height="90" data-uk-img>
-                            <h5 class="uk-margin-small-top">Global Forex Award 2019</h5>
-                        </div>
-                        <div class="uk-visible@s">
-                            <img class="uk-border-rounded uk-margin-remove-bottom"
-                                src="/frontpage/monee/img/in-lazy.gif"
-                                data-src="/frontpage/monee/img/in-monee-1-award-2.png" alt="monee-award2" width="148"
-                                height="90" data-uk-img>
-                            <h5 class="uk-margin-small-top">9th Saudi Money Expo</h5>
-                        </div>
-                        <div class="uk-visible@s">
-                            <img class="uk-border-rounded uk-margin-remove-bottom"
-                                src="/frontpage/monee/img/in-lazy.gif"
-                                data-src="/frontpage/monee/img/in-monee-1-award-3.png" alt="monee-award3" width="148"
-                                height="90" data-uk-img>
-                            <h5 class="uk-margin-small-top">World Finance Magazine</h5>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- section content end -->
-    <!-- section content begin -->
     <div class="uk-section in-monee-2">
         <div class="uk-container">
             <div class="uk-grid">
