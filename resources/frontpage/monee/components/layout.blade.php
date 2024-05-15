@@ -67,20 +67,23 @@
                         <div class="uk-navbar-item uk-logo">
                             <x-application-logo />
                         </div>
-                        <ul class="uk-navbar-nav uk-visible@m">
-                            <li><a href="/">Home</a>
-                            <li><a href="#plans">Plan</a>
-                            <li><a href="#testimonies">Testimonies</a>
-                            <li><a href="#started">How it Works</a>
+                        <ul class="uk-navbar-nav uk-visible@m" style="align-items: center">
+                            <li><a href="/">Home</a></li>
+                            <li><a href="#plans">Plan</a></li>
+                            <li><a href="#testimonies">Testimonies</a></li>
+                            <li><a href="#started">How it Works</a></li>
+                            <li class="uk-hidden@m">
+                                <a href="{{ route('login') }}" style="padding-left: 8px"
+                                    class="uk-button uk-button-small uk-button-default">
+                                    Login<i class="fas fa-right-to-bracket"></i>
+                                </a>
+                            </li>
                         </ul>
                     </div>
                     <div class="uk-navbar-right">
                         <div class="uk-navbar-item" hidden>
-                            <div class="in-optional-navs">
-                                <a href="{{ route('login') }}"
-                                    class="uk-button uk-button-small uk-button-default">Login<i
-                                        class="fas fa-right-to-bracket"></i></a>
-                            </div>
+                            <a href="{{ route('login') }}" class="uk-button uk-button-small uk-button-default">Login<i
+                                    class="fas fa-right-to-bracket"></i></a>
                         </div>
                     </div>
                 </div>

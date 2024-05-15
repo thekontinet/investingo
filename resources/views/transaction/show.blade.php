@@ -16,7 +16,7 @@
                             </li>
                             <li>
                                 <div class="sub-text">Amount</div>
-                                <div class="lead-text">{{ money('100') }}</div>
+                                <div class="lead-text">{{ money($transaction->amount) }}</div>
                             </li>
                             <li>
                                 <div class="sub-text">Status</div>
