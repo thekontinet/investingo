@@ -4,13 +4,13 @@
     <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-screener.js" async>
         {
             "width": "100%",
-            "height": 550,
+            "height": "100%",
             "defaultColumn": "overview",
-            "defaultScreen": "top_gainers",
-            "market": "america",
+            "defaultScreen": "most_capitalized",
             "showToolbar": true,
-            "colorTheme": "light",
-            "locale": "en"
+            "locale": "en",
+            "market": "us",
+            "colorTheme": "light"
         }
     </script>
 </div>

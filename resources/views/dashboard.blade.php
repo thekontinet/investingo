@@ -67,7 +67,13 @@
                     </div><!-- .card -->
                 </div><!-- .col -->
             </div><!-- .row -->
-        </div><!-- .nk-block -->
+        </div>
+        <!-- .nk-block -->
+        <div class="nk-block">
+            <div class="container" style="height: 450px">
+                <x-chart />
+            </div>
+        </div>
         <div class="nk-block">
             <div class="card card-bordered card-stretch">
                 <div class="card-inner-group">

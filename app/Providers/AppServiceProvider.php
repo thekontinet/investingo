@@ -16,8 +16,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        $this->loadViewsFrom(resource_path('/frontpage/oitila'), 'frontpage');
-        Blade::anonymousComponentPath(resource_path('/frontpage/oitila/components'), 'frontpage');
+        $this->loadViewsFrom(resource_path('/frontpage/monee'), 'frontpage');
+        Blade::anonymousComponentPath(resource_path('/frontpage/monee/components'), 'frontpage');
     }
 
     /**

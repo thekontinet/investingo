@@ -53,7 +53,7 @@ class PlanResource extends Resource
                     ->placeholder('Ex. 0.7'),
                 Forms\Components\Textarea::make('description')
                     ->placeholder('Ex. Enjoy entry level investment')
-                    ->maxLength(50)
+                    ->maxLength(2000)
                     ->columnSpanFull(),
             ]);
     }

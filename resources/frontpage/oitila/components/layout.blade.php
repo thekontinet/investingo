@@ -92,7 +92,7 @@
                                             </li>
 
                                             <li class="nav-item">
-                                                <a class='nav-link' href='#reason'>Why Us<span
+                                                <a class='nav-link' href='{{ url('/#reason') }}'>Why Us<span
                                                         class="sr-only">(current)</span></a>
                                             </li>
 

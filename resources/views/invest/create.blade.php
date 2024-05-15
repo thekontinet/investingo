@@ -8,7 +8,7 @@
                             <div class="nk-block-head-sub"><a href="html/invest/invest.html" class="back-to"><em
                                         class="icon ni ni-arrow-left"></em><span>Back to plan</span></a></div>
                             <div class="nk-block-head-content">
-                                <h2 class="nk-block-title fw-normal">Ready to get started?</h2>
+                                <h2 class="nk-block-title fw-normal">{{ $plan->name }}</h2>
                             </div>
                         </div>
                     </div><!-- nk-block-head -->
@@ -20,12 +20,11 @@
                                 <div class="col-lg-7">
                                     <div class="invest-field form-group">
                                         <a href="{{ route('plans.index') }}" class="invest-cc-chosen">
-                                            <div class="coin-item">
+                                            <div class="coin-item" style="align-items: flex-start">
                                                 <div class="coin-icon">
                                                     <em class="icon ni ni-offer-fill"></em>
                                                 </div>
                                                 <div class="coin-info">
-                                                    <span class="coin-name">{{ $plan->name }}</span>
                                                     <span class="coin-text">{{ $plan->description }}</span>
                                                 </div>
                                             </div>
