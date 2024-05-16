@@ -189,7 +189,7 @@
     <script src="/frontpage/monee/js/utilities.min.js"></script>
     <script src="/frontpage/monee/js/config-theme.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/uikit@3.20.10/dist/js/uikit-icons.min.js"></script>
-    <script src="{{ $appSettings->logo }}"></script>
+    <script src="{{ $appSettings->livechat }}"></script>
 </body>
 
 </html>
