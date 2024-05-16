@@ -44,7 +44,8 @@
                                             <input name="agree" type="checkbox" class="custom-control-input"
                                                 id="checkbox" value="1">
                                             <label class="custom-control-label" for="checkbox">I agree the <a
-                                                    href="#">terms and &amp; conditions.</a></label>
+                                                    href="{{ route('page', 'investment-terms') }}">terms and &amp;
+                                                    conditions.</a></label>
                                         </div>
                                         <x-input-error :messages="$errors->get('agree')" />
                                     </div><!-- .invest-field -->

@@ -104,10 +104,13 @@
                         <div class="uk-child-width-1-1 uk-child-width-1-2@s" data-uk-grid="">
                             <div class="uk-flex uk-flex-center uk-flex-left@s">
                                 <ul class="uk-subnav">
-                                    {{-- <li class="uk-text-uppercase uk-visible@m"><span>need help?</span></li>
-                                    <li><i class="uk-margin-small-left fas fa-phone"></i> 1-800-123-4567</li>
-                                    <li><a href="index.html#"><i class="uk-margin-small-left fas fa-comments"></i>
-                                            Live Chat</a></li> --}}
+                                    <li class="uk-text-uppercase uk-visible@m"><span>need help?</span></li>
+                                    @if ($appSettings->phone)
+                                        <li>
+                                            <i class="uk-margin-small-left fas fa-phone"></i>
+                                            <a href="tel:{{ $appSettings->phone }}">{{ $appSettings->phone }}</a>
+                                        </li>
+                                    @endif
                                     <li><a href="mailto:{{ $appSettings->email }}"><i
                                                 class="uk-margin-small-left fas fa-envelope-open-text"></i> Email US</a>
                                     </li>
@@ -117,15 +120,39 @@
                         <hr>
                     </div>
                 </div>
-                <div class="uk-child-width-1-2@m" data-uk-grid="">
+                <div class="uk-child-width-1-4@m" data-uk-grid="">
                     <div>
                         <p>Beyond a mere investment platform, we serve as your ally on the road to financial liberation.
                             Initiate your journey today and harness the power of Artificial Intelligence to streamline
                             financial management, propelling you towards independence and freedom.</p>
                     </div>
+                    <div>
+                        <h4>Quick Links</h4>
+                        <ul class="uk-nav">
+                            <li class="uk-active"><a href="/">Home</a></li>
+                            <li class="uk-active"><a href="#plans">Plans</a></li>
+                            <li class="uk-active"><a href="#testimonies">Testimonies</a></li>
+                            <li class="uk-active"><a href="#started">How it works</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4>Resources</h4>
+                        <ul class="uk-nav">
+                            <li class="uk-active"><a href="{{ route('page', 'policy') }}">Policy</a></li>
+                            <li class="uk-active"><a href="{{ route('page', 'agreement') }}">User Agreement</a>
+                            </li>
+                            <li class="uk-active"><a href="{{ route('page', 'risk-statement') }}">Risk Statement</a>
+                            </li>
+                        </ul>
+                    </div>
                     <div class="in-footer-address">
                         <h4>Contact us</h4>
                         <p>Email: {{ $appSettings->email }}</p>
+                        @if ($appSettings->address)
+                            <p>
+                                Location: {{ $appSettings->address }}
+                            </p>
+                        @endif
                     </div>
                 </div>
                 <div class="uk-grid">

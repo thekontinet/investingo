@@ -4,13 +4,15 @@ namespace App\Filament\Pages;
 
 use App\Settings\AppSettings;
 use Filament\Forms\Components\FileUpload;
+use Filament\Forms\Components\Section;
+use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
 use Filament\Pages\SettingsPage;
 
 class ManageApp extends SettingsPage
 {
-    protected static ?string $navigationIcon = 'heroicon-o-cog-6-tooth';
+    protected static ?string $navigationIcon = 'heroicon-o-puzzle-piece';
 
     protected static string $settings = AppSettings::class;
 
@@ -20,13 +22,23 @@ class ManageApp extends SettingsPage
     {
         return $form
             ->schema([
-                TextInput::make('name')->required(),
-                TextInput::make('email')->email(),
-                TextInput::make('description'),
-                TextInput::make('headline'),
-                TextInput::make('tagline'),
-                TextInput::make('livechat'),
-                FileUpload::make('logo'),
+                Section::make('Website')
+                    ->schema([
+                        FileUpload::make('logo')->avatar(),
+                        TextInput::make('headline'),
+                        TextInput::make('tagline'),
+                        Textarea::make('description'),
+                    ]),
+
+                Section::make('Contact Details')
+                    ->schema([
+                        TextInput::make('name')->required(),
+                        TextInput::make('email')->email(),
+                        TextInput::make('phone')->tel(),
+                        TextInput::make('livechat'),
+                        Textarea::make('address')
+                            ->label('Company Address'),
+                    ]),
             ]);
     }
 }

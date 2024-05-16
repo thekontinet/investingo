@@ -147,21 +147,22 @@
     </div>
     <!-- section content end -->
     <!-- section content begin -->
-    <div class="uk-section in-monee-5" id="started">
+    <div class="uk-section in-monee-5 uk-background-fixed uk-background-cover" id="started"
+        style="background-image: linear-gradient(rgba(0, 0, 0, 0.685), rgb(86, 87, 90)), url('/frontpage/monee/img/bg001.jpg'); color:#fff">
         <div class="uk-container">
             <div class="uk-grid uk-child-width-1-1 uk-child-width-1-3@m uk-child-width-1-2@s" data-uk-grid>
-                <div class="uk-width-1-1 uk-text-center">
-                    <h2>How to Get Started</h2>
+                <div class="uk-width-1-1 uk-text-center uk-padding-large">
+                    <h2 style="color: #fff">How to Get Started</h2>
                 </div>
                 <div class="uk-first-column">
                     <div class="uk-grid uk-grid-small">
                         <div class="uk-width-auto">
-                            <div class="in-icon-wrap small primary-color">
+                            <div class="in-icon-wrap small default-color">
                                 <span uk-icon="user"></span>
                             </div>
                         </div>
                         <div class="uk-width-expand">
-                            <h3 class="uk-margin-remove-bottom">Create an Account</h3>
+                            <h3 style="color:#fff" class="uk-margin-remove-bottom">Create an Account</h3>
                             <p class="uk-margin-small-top uk-margin-remove-bottom">
                                 Register your account today. It's totally easy and free</p>
                         </div>
@@ -170,12 +171,12 @@
                 <div class="">
                     <div class="uk-grid uk-grid-small">
                         <div class="uk-width-auto">
-                            <div class="in-icon-wrap small primary-color uk-text-bold">
+                            <div class="in-icon-wrap small default-color uk-text-bold">
                                 <span uk-icon="credit-card"></span>
                             </div>
                         </div>
                         <div class="uk-width-expand">
-                            <h3 class="uk-margin-remove-bottom">Deposit & Investment Money</h3>
+                            <h3 style="color:#fff" class="uk-margin-remove-bottom">Deposit & Invest Capital</h3>
                             <p class="uk-margin-small-top uk-margin-remove-bottom">Make a capital deposit and choose an
                                 investment plan..</p>
                         </div>
@@ -184,12 +185,12 @@
                 <div class="">
                     <div class="uk-grid uk-grid-small">
                         <div class="uk-width-auto">
-                            <div class="in-icon-wrap small primary-color uk-text-bold">
+                            <div class="in-icon-wrap small default-color uk-text-bold">
                                 <span uk-icon="bolt"></span>
                             </div>
                         </div>
                         <div class="uk-width-expand">
-                            <h3 class="uk-margin-remove-bottom">Get Easy and Swift Withdrawals</h3>
+                            <h3 style="color:#fff" class="uk-margin-remove-bottom">Get Easy and Swift Withdrawals</h3>
                             <p class="uk-margin-small-top uk-margin-remove-bottom">
                                 Request a withdrawal and get paid almost instantly</p>
                         </div>

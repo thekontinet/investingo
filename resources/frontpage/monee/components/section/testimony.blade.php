@@ -12,19 +12,30 @@
                                 to improve trading for the self-directed investor.</p>
                         </div>
                     </div>
-                    <div class="uk-child-width-1-3@m uk-text-center uk-margin-small-bottom uk-grid" data-uk-grid="">
-                        @foreach (app(App\Settings\PageSettings::class)->testimonies as $testimony)
-                            <div class="uk-first-column">
-                                <img src="{{ $testimony['image'] ? asset('storage/' . $testimony['image']) : 'https://ui-avatars.com/api/?name=' . $testimony['title'] }}"
-                                    alt="{{ $testimony['title'] }}" width="200" height="200">
-                                <h4 class="uk-margin-small-top uk-margin-remove-bottom">{{ $testimony['title'] }}
-                                </h4>
-                                <span
-                                    class="uk-label uk-label-warning uk-text-small uk-border-rounded uk-margin-small-top uk-margin-small-bottom">Chief
-                                    {{ $testimony['subtitle'] }}</span>
-                                <p>{{ $testimony['comment'] }}</p>
-                            </div>
-                        @endforeach
+                    <div class="uk-margin-large-top" uk-slider="center:true;autoplay:true;sets:true">
+                        <div class="uk-slider-items uk-child-width-1-1@m uk-margin-small-bottom uk-grid">
+                            @foreach (app(App\Settings\PageSettings::class)->testimonies as $testimony)
+                                <div>
+                                    <div class="uk-background-default uk-padding">
+                                        <p class="uk-text-large">{{ $testimony['comment'] }}</p>
+                                        <div class="uk-text-center">
+                                            <img src="{{ $testimony['image'] ? asset('storage/' . $testimony['image']) : 'https://ui-avatars.com/api/?name=' . $testimony['title'] }}"
+                                                alt="{{ $testimony['title'] }}" width="100" height="200">
+                                            <h4 class="uk-margin-small-top uk-margin-remove-bottom">
+                                                {{ $testimony['title'] }}
+                                            </h4>
+                                            <span
+                                                class="uk-label uk-label-warning uk-text-small uk-border-rounded uk-margin-small-top uk-margin-small-bottom">Chief
+                                                {{ $testimony['subtitle'] }}</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            @endforeach
+                        </div>
+                        <a class="uk-position-center-left uk-position-small uk-hidden-hover" href uk-slidenav-previous
+                            uk-slider-item="previous"></a>
+                        <a class="uk-position-center-right uk-position-small uk-hidden-hover" href uk-slidenav-next
+                            uk-slider-item="next"></a>
                     </div>
                 </div>
             </div>

@@ -12,7 +12,7 @@ use Filament\Pages\SettingsPage;
 
 class ManagePageInfo extends SettingsPage
 {
-    protected static ?string $navigationIcon = 'heroicon-o-cog-6-tooth';
+    protected static ?string $navigationIcon = 'heroicon-o-book-open';
 
     protected static string $settings = PageSettings::class;
 
@@ -24,11 +24,11 @@ class ManagePageInfo extends SettingsPage
             ->schema([
                 Repeater::make('testimonies')
                     ->schema([
-                        FileUpload::make('image'),
+                        FileUpload::make('image')->columnSpanFull(),
                         TextInput::make('title')->required(),
                         TextInput::make('subtitle')->required(),
-                        Textarea::make('comment')->required()->maxLength(400),
-                    ]),
-            ]);
+                        Textarea::make('comment')->required()->maxLength(500)->columnSpanFull(),
+                    ])->columns(2)->grid(3),
+            ])->columns(1);
     }
 }

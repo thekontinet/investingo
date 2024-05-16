@@ -9,6 +9,9 @@ class AppSettings extends Settings
 {
     public string $name;
     public ?string $email;
+    public ?string $phone;
+    public ?string $address;
+    public array $meta;
     public ?string $description;
     public ?string $headline;
     public ?string $tagline;
