@@ -13,7 +13,7 @@
                                     src="/frontpage/monee/img/in-lazy.gif"
                                     data-src="/frontpage/monee/img/in-monee-slideshow-graph.png" alt="slideshow-image"
                                     data-width data-height data-uk-img>
-                                <div class="uk-position-center-left uk-padding uk-text-center uk-text-left@m">
+                                <div class="uk-position-center-left uk-padding-small uk-text-center uk-text-left@m">
                                     <div class="uk-animation-slide-top-small">
                                         <h3 class="uk-text-large">{{ $appSettings->headline }}</h3>
                                         <p class="uk-text-small">{{ $appSettings->tagline }}</p>

@@ -117,7 +117,7 @@
                         <hr>
                     </div>
                 </div>
-                <div class="uk-child-width-1-4@m" data-uk-grid="">
+                <div class="uk-child-width-1-2@m" data-uk-grid="">
                     <div>
                         <p>Beyond a mere investment platform, we serve as your ally on the road to financial liberation.
                             Initiate your journey today and harness the power of Artificial Intelligence to streamline

@@ -7,7 +7,7 @@
                 <div class="uk-card-body">
                     <div class="uk-grid uk-flex uk-flex-center">
                         <div class="uk-width-3-4@m uk-text-center">
-                            <h2>What our client says</h2>
+                            <h2>What our clients says</h2>
                             <p>We are a group of passionate, independent thinkers who never stop exploring new ways
                                 to improve trading for the self-directed investor.</p>
                         </div>
