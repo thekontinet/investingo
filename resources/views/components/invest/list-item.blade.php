@@ -29,7 +29,7 @@
         </div>
         <div class="nk-iv-scheme-amount">
             <div class="nk-iv-scheme-amount-a nk-iv-scheme-order">
-                <span class="nk-iv-scheme-label text-soft">Total Return</span>
+                <span class="nk-iv-scheme-label text-soft">Expected Return</span>
                 <span class="nk-iv-scheme-value amount">{{ money($investment->total_return) }}</span>
             </div>
             <div class="nk-iv-scheme-amount-b nk-iv-scheme-order">

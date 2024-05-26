@@ -89,7 +89,7 @@
                                                         <div class="number">{{ money($investment->total_return) }}
                                                         </div>
                                                     </div>
-                                                    <div class="nk-iv-wg3-subtitle">Total Return</div>
+                                                    <div class="nk-iv-wg3-subtitle">Expected Return</div>
                                                 </div>
                                             </div>
                                         </div>
@@ -159,7 +159,7 @@
                                         </div>
                                     </li>
                                     <li>
-                                        <div class="sub-text">Total return</div>
+                                        <div class="sub-text">Expected return</div>
                                         <div class="lead-text">
                                             {{ money($investment->total_return) }}
                                         </div>

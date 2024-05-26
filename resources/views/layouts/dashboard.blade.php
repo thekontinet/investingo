@@ -34,7 +34,7 @@
             <div class="nk-footer nk-footer-fluid bg-lighter">
                 <div class="container-xl wide-lg">
                     <div class="nk-footer-wrap">
-                        <div class="nk-footer-copyright"> &copy; {{ date('Y') }} {{ config('app.name') }}
+                        <div class="nk-footer-copyright"> &copy; {{ date('Y') }} {{ $appSettings->name }}
                         </div>
                         <div class="nk-footer-links">
 
