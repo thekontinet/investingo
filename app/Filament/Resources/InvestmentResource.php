@@ -4,11 +4,13 @@ namespace App\Filament\Resources;
 
 use App\Filament\Resources\InvestmentResource\Pages;
 use App\Models\Investment;
+use App\Models\Scopes\HiddenForUser;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
+use Illuminate\Database\Eloquent\Builder;
 
 class InvestmentResource extends Resource
 {
@@ -53,9 +55,9 @@ class InvestmentResource extends Resource
                     ->numeric()
                     ->default(0)
                     ->minValue(0)
-                    ->maxValue(fn ($record) => max(0, $record->total_return))
-                    ->helperText(fn ($record) => 'Profit must not be greater than '.money($record->total_return))
-                    ->visible(fn ($record) => (bool) $record?->approved()),
+                    ->helperText(fn($record) => $record->approved() ? 'Maximum expected return is: ' . money($record->total_return) : 'Profit cannot be added if investment is not approved')
+                    ->disabled(fn ($record) => !$record?->approved()),
+
                 Forms\Components\TextInput::make('daily_profit_rate')
                     ->required()
                     ->numeric(),

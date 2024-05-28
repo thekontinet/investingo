@@ -3,12 +3,14 @@
 namespace App\Filament\Resources;
 
 use App\Filament\Resources\TransactionResource\Pages;
+use App\Models\Scopes\HiddenForUser;
 use App\Models\Transaction;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
+use Illuminate\Database\Eloquent\Builder;
 
 class TransactionResource extends Resource
 {
@@ -26,6 +28,13 @@ class TransactionResource extends Resource
         return 'danger';
     }
 
+    public static function getEloquentQuery(): Builder
+    {
+        return parent::getEloquentQuery()
+            ->withoutGlobalScope(HiddenForUser::class)
+            ->latest();
+    }
+
     public static function form(Form $form): Form
     {
         return $form
@@ -38,13 +47,15 @@ class TransactionResource extends Resource
                     ->columnSpanFull()
                     ->hidden(fn ($record) => !$record?->confirmed)
                     ->required(),
+                Forms\Components\Toggle::make('hidden')
+                    ->helperText('Hide this transaction from user')
+                    ->columnSpanFull(),
             ]);
     }
 
     public static function table(Table $table): Table
     {
         return $table
-            ->modifyQueryUsing(fn ($query) => $query->latest())
             ->columns([
                 Tables\Columns\TextColumn::make('description')
                     ->description(fn ($record) => $record->payable->email)

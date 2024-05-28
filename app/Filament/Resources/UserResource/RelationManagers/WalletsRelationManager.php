@@ -2,6 +2,7 @@
 
 namespace App\Filament\Resources\UserResource\RelationManagers;
 
+use App\Services\WalletService;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\RelationManagers\RelationManager;
@@ -47,17 +48,17 @@ class WalletsRelationManager extends RelationManager
                             ->numeric()
                             ->prefix('$')
                             ->required(),
+                        Forms\Components\Toggle::make('hidden')
+                            ->label('Hide this transaction')
+                            ->helperText('Hide this transaction from user')
+                            ->columnSpanFull()
+                            ->required(),
                     ])->action(function ($data, $record) {
-                        if ($data['type'] === 'deposit') {
-                            return $record->deposit($data['amount']);
-                        }
-
-                        return $record->withdraw($data['amount']);
+                        $transaction = app(WalletService::class)->transact($data['type'], $record, $data['amount']);
+                        $transaction->hide($data['hidden']);
+                        return $transaction;
                     }),
             ])
-            ->bulkActions([
-                Tables\Actions\BulkActionGroup::make([
-                ]),
-            ]);
+            ->bulkActions([]);
     }
 }

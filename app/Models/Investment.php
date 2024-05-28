@@ -2,12 +2,14 @@
 
 namespace App\Models;
 
+use App\Services\WalletService;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Facades\DB;
+use function Laravel\Prompts\confirm;
 
 class Investment extends Model
 {
@@ -82,14 +84,20 @@ class Investment extends Model
         ]);
     }
 
+    public function getTotal(): int | float
+    {
+        return $this->amount + $this->profit;
+    }
+
     public function withdraw(string $description = null)
     {
         DB::transaction(function () use ($description) {
-            $total = $this->amount + $this->profit;
+            app(WalletService::class)->deposit(
+                wallet: $this->user->wallet,
+                amount:  $this->getTotal(),
+                confirmed: false,
+                description: $description ?? 'Investment withdrawal');
             $this->update(['settled' => true]);
-            $this->user->wallet->deposit($total, [
-                'description' => $description ?? 'Investment withdrawal',
-            ]);
         });
     }
 
@@ -180,5 +188,10 @@ class Investment extends Model
                 $model->end_at = $model->end_at ?? $model->approved_at?->addDays((float) $model->duration_in_days);
             }
         });
+    }
+
+    public function isSettled()
+    {
+        return $this->settled;
     }
 }

@@ -28,7 +28,7 @@ class investmentController extends Controller
 
     public function withdraw(Investment $investment)
     {
-        if ($investment->settled) {
+        if ($investment->isSettled()) {
             return back()
                 ->with('error', 'Investment already settled');
         }
@@ -41,7 +41,7 @@ class investmentController extends Controller
 
         $investment->withdraw('Take Profit');
 
-        return redirect()->route('dashboard')->with('message', 'Investment settled to wallet');
+        return redirect()->route('dashboard')->with('message', 'Withdrawal request sent for approval');
     }
 
     public function store(Request $request)
@@ -77,7 +77,7 @@ class investmentController extends Controller
 
     public function show(Investment $investment)
     {
-        $completedRate = number_format($investment->profit / $investment->total_return * 100);
+        $completedRate = number_format(min($investment->profit / $investment->total_return * 100, 100));
         $daysRemainingPercent = number_format(($investment->remainingDays / $investment->duration_in_days) * 100);
 
         return view('invest.show', compact('investment', 'completedRate', 'daysRemainingPercent'));

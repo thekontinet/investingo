@@ -2,10 +2,12 @@
 
 namespace App\Models;
 
+use App\Models\Scopes\HiddenForUser;
 use Bavix\Wallet\Models\Transaction as BaseTransaction;
+use Illuminate\Database\Eloquent\Attributes\ScopedBy;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-
+#[ScopedBy(HiddenForUser::class)]
 class Transaction extends BaseTransaction
 {
     use HasFactory;
@@ -38,5 +40,10 @@ class Transaction extends BaseTransaction
                 return $description;
             }
         );
+    }
+
+    public function hide(bool $hidden = true): bool
+    {
+        return $this->update(['hidden' => $hidden]);
     }
 }
