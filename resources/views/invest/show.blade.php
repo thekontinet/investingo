@@ -89,7 +89,7 @@
                                                         <div class="number">{{ money($investment->total_return) }}
                                                         </div>
                                                     </div>
-                                                    <div class="nk-iv-wg3-subtitle">Expected Return</div>
+                                                    <div class="nk-iv-wg3-subtitle">Estimated Returns</div>
                                                 </div>
                                             </div>
                                         </div>
@@ -111,7 +111,7 @@
                                         <div class="lead-text">{{ $investment->end_at?->format('jS M Y') }}</div>
                                     </li>
                                     <li>
-                                        <div class="sub-text">Daily interest</div>
+                                        <div class="sub-text">Estimated daily interest</div>
                                         <div class="lead-text">{{ $investment->plan->daily_interest }}%</div>
                                     </li>
                                 </ul><!-- .nk-iv-wg3-list -->
@@ -129,7 +129,7 @@
                                         <div class="lead-text">{{ $investment->user?->email }}</div>
                                     </li>
                                     <li>
-                                        <div class="sub-text">Status</small></div>
+                                        <div class="sub-text">Status</div>
                                         <div class="lead-text">
                                             @if (!$investment->paused)
                                                 <span class="badge bg-outline bg-primary text-white">Running</span>
@@ -147,19 +147,19 @@
                                         </div>
                                     </li>
                                     <li>
-                                        <div class="sub-text">Daily profit</div>
+                                        <div class="sub-text">Estimated daily profit</div>
                                         <div class="lead-text">
                                             {{ money($investment->daily_profit_amount) }}
                                         </div>
                                     </li>
                                     <li>
-                                        <div class="sub-text">profit Earned</div>
+                                        <div class="sub-text">Profit Earned</div>
                                         <div class="lead-text">
                                             {{ money($investment->profit) }}
                                         </div>
                                     </li>
                                     <li>
-                                        <div class="sub-text">Expected return</div>
+                                        <div class="sub-text">Estimated returns</div>
                                         <div class="lead-text">
                                             {{ money($investment->total_return) }}
                                         </div>
