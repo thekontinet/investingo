@@ -38,7 +38,7 @@
                                                             <div class="col-6">
                                                                 <span
                                                                     class="lead-text">{{ $plan->daily_interest }}%</span>
-                                                                <span class="sub-text">Daily Interest</span>
+                                                                <span class="sub-text">Estimated daily interest </span>
                                                             </div>
                                                             <div class="col-6">
                                                                 <span class="lead-text">{{ $plan->terms_days }}</span>
@@ -58,7 +58,7 @@
                                                             </li>
                                                             <li><span class="desc-label">Deposit Return</span> - <span
                                                                     class="desc-data">Yes</span></li>
-                                                            <li><span class="desc-label">Total Return</span> - <span
+                                                            <li><span class="desc-label">Estimated Return</span> - <span
                                                                     class="desc-data">{{ $plan->totalReturn }}%</span>
                                                             </li>
                                                         </ul>
