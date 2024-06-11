@@ -109,7 +109,7 @@ test('cannot withdraw investment when investment is open', function () {
     assertFalse($investment->refresh()->settled);
 });
 
-test('can credit wallet when investment is withdrawn', function () {
+test('a pending credit transaction is created when an investment is withdrawn', function () {
     $user = User::factory()->create();
     $plan = Plan::factory()->create([
         'min_deposit' => 0,
@@ -117,15 +117,22 @@ test('can credit wallet when investment is withdrawn', function () {
         'terms_days' => 30,
         'daily_interest' => 1.5,
     ]);
-
     $user->wallet->deposit(1000);
-    $investment = Investment::open(100, $plan, $user);
+
+    $investmentService = app(\App\Services\InvestmentService::class);
+    $investment = $investmentService->openNewInvestment($user, $plan, 100);
     $investment->close();
     $investment->update(['profit' => 10]);
-
     $this->actingAs($user)->post(route('invest.withdraw', $investment));
 
-    assertEquals($user->wallet->balance, 1110);
+    $expectedBalance = 900;
+    $withdrawAmount = 110;
+
+    assertEquals($expectedBalance, $user->wallet->balance);
+    assertDatabaseHas(\App\Models\Transaction::class, [
+        'confirmed' => false,
+        'amount' => $withdrawAmount,
+    ]);
 });
 
 test('cannot withdraw investment when investment pause state is false', function () {

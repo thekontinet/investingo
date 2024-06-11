@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Services\WalletService;
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -11,6 +12,12 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Facades\DB;
 use function Laravel\Prompts\confirm;
 
+/**
+ * @property Carbon $end_at
+ * @property bool $auto
+ * @property bool $paused
+ * @property bool $settled
+ */
 class Investment extends Model
 {
     use HasFactory;
@@ -89,15 +96,15 @@ class Investment extends Model
         return $this->amount + $this->profit;
     }
 
-    public function withdraw(string $description = null)
+    public function withdraw(string $description = null): \Bavix\Wallet\Models\Transaction
     {
-        DB::transaction(function () use ($description) {
-            app(WalletService::class)->deposit(
+        return DB::transaction(function () use ($description) {
+            $this->update(['settled' => true]);
+            return app(WalletService::class)->deposit(
                 wallet: $this->user->wallet,
                 amount:  $this->getTotal(),
                 confirmed: false,
                 description: $description ?? 'Investment withdrawal');
-            $this->update(['settled' => true]);
         });
     }
 
@@ -193,5 +200,12 @@ class Investment extends Model
     public function isSettled()
     {
         return $this->settled;
+    }
+
+    public function addDailyProfit(): int|float
+    {
+        $newProfit = $this->profit + $this->daily_profit_amount;
+        $this->update(['profit' => $newProfit]);
+        return $newProfit;
     }
 }

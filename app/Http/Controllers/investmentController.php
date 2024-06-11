@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Investment;
 use App\Models\Plan;
 use App\Models\User;
+use App\Services\InvestmentService;
+use Bavix\Wallet\Exceptions\BalanceIsEmpty;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -44,8 +46,9 @@ class investmentController extends Controller
         return redirect()->route('dashboard')->with('message', 'Withdrawal request sent for approval');
     }
 
-    public function store(Request $request)
+    public function store(Request $request, InvestmentService $investmentService)
     {
+        /** @var Plan $plan */
         $plan = Plan::query()->findOrFail($request->input('plan_id'));
 
         $request->validate([
@@ -54,25 +57,14 @@ class investmentController extends Controller
             'agree' => ['required', 'boolean'],
         ]);
 
-        /** @var User */
-        $user = auth()->user();
-
-        // Check if user has enough balance to invest
-        if (!$user->wallet->canWithdraw($request->input('amount'))) {
-            return redirect()->back()
-                ->withErrors(['amount' => 'Low balance. Please deposit funds to your balance and try again, or invest a lesser amount']);
+        try {
+            /** @var User */
+            $user = auth()->user();
+            $investment = $investmentService->openNewInvestment($user, $plan, $request->input('amount'));
+            return redirect()->route('invest.show', $investment);
+        }catch (BalanceIsEmpty $e){
+            return redirect()->back()->withErrors(['amount' => $e->getMessage()]);
         }
-
-        // Debit the user wallet and open investment
-        $investment = DB::transaction(function () use ($user, $plan, $request) {
-            $user->wallet->withdraw($request->input('amount'), [
-                'description' => 'Open Investment',
-            ]);
-
-            return Investment::open($request->input('amount'), $plan, $user);
-        });
-
-        return redirect()->route('invest.show', $investment);
     }
 
     public function show(Investment $investment)
@@ -95,7 +87,8 @@ class investmentController extends Controller
         }
 
         $investment->close();
-        $investment->withdraw();
+        $transaciton = $investment->withdraw();
+        auth()->user()->wallet->confirm($transaciton);
 
         return redirect()->route('dashboard')->with(['message' => 'Investment has been cancelled']);
     }
