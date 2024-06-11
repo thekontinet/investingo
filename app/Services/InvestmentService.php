@@ -46,7 +46,7 @@ class InvestmentService
         // Save the key to cache so we can exclude them in the next profit
         Cache::remember(
             $cacheKey,
-            now()->addSeconds(34),
+            now()->addHours(24),
             fn()=> array_merge($activeInvestments->pluck('id')->toArray(), Cache::get($cacheKey) ?? [])
         );
     }
