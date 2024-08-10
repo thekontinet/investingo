@@ -18,7 +18,7 @@ return new class() extends Migration {
             $table->string('type');
             $table->string('price');
             $table->string('image_url');
-            $table->json('meta')->default(json_encode([]));
+            $table->json('meta')->nullable();
             $table->timestamps();
         });
     }
