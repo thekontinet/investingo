@@ -55,7 +55,7 @@ class InvestmentResource extends Resource
                     ->numeric()
                     ->default(0)
                     ->minValue(0)
-                    ->helperText(fn($record) => $record->approved() ? 'Maximum expected return is: ' . money($record->total_return) : 'Profit cannot be added if investment is not approved')
+                    ->helperText(fn($record) => $record?->approved() ? 'Maximum expected return is: ' . money($record->total_return) : 'Profit cannot be added if investment is not approved')
                     ->disabled(fn ($record) => !$record?->approved()),
 
                 Forms\Components\TextInput::make('daily_profit_rate')
