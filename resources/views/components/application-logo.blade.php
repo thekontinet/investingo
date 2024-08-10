@@ -3,5 +3,5 @@
 @endphp
 
 <a href='/'>
-    <img style="max-width: 150px" src="{{ $url }}" alt="{{ $appSettings->name }}">
+    <img style="max-width: 80px" src="{{ $url }}" alt="{{ $appSettings->name }}">
 </a>
